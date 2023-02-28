@@ -19,8 +19,9 @@ res = dns.resolver.Resolver()
 caminho = input(fade.fire("Digite o caminho da wordlist desejada para o ataque: "))
 arquivo = open(caminho)
 subdominios = arquivo.read().splitlines()
+count  = 0
 
-alvo = input(fade.fire("Digite o alvo desejado [URL]: "))
+alvo = input(fade.fire("Digite o alvo desejado: "))
 
 for sub in subdominios:
 
@@ -32,6 +33,9 @@ for sub in subdominios:
         for ip in resultado:
 
             print(fade.fire(f"{sub_alvo.strip():-<50}->  {ip}"))
+            count += 1
 
     except:
         pass
+
+print(fade.fire(f"No total foram encontrados {count} subdomínios para {alvo}"))
