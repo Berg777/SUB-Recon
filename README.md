@@ -1,32 +1,30 @@
-<div align="center">
-
 # Subdomain Search Tool in Python
 
+SubRecon is a command-line tool to discover subdomains of a target domain using a wordlist and crt.sh records. It also resolves the found subdomains to obtain their respective IP addresses.
+
+<br>
+
+<div align="center">
 <img src="static/subrecon.png">
 </div>
-
-This is a simple Python script for performing a subdomain search on a target domain. The script utilizes DNS resolution to find and list active subdomains.
-<div align="center">
 
 ---
 
 # Features
 
-</div>
-
 ```txt
-Supports custom wordlists.
-Displays a progress bar during the search.
-Provides real-time updates of found subdomains.
+- Subdomain search using a wordlist
+- Subdomain search using crt.sh records
+- Displays a progress bar during the search.
+- Provides real-time updates of found subdomains.
+- Resolves subdomains to IP addresses
+- Option to save found subdomains to a file
+- Option to save found subdomains and their IPs to a file
 ```
-
-<div align="center">
 
 ---
 
 # Requirements
-
-</div>
 
 - Python 3.x
 - Required libraries: dnspython, fade, argparse
@@ -41,11 +39,7 @@ pip install dnspython fade argparse
 
 ---
 
-<div align="center">
-
 # Usage
-
-</div>
 
 Basic Usage:
 
@@ -56,3 +50,26 @@ python subrecon.py -w wordlist.txt -t targetdomain.com
 ```
 
 In this example, the script will use the wordlist.txt file to search for subdomains of targetdomain.com.
+
+# Parameters
+
+```txt
+-w or --wordlist: Path to the wordlist for subdomain search
+-t or --target: Target domain
+-c or --crt: Use subdomain search via crt.sh
+-oS or --output-subs: Output file for found subdomains
+-oSIP or --output-subs-ips: Output file for found subdomains and their respective IPs
+```
+
+## Examples
+
+```txt
+python subrecon.py -w wordlist.txt -t domain.com
+
+python subrecon.py -c -t domain.com
+
+python subrecon.py -w wordlist.txt -t domain.com -oS subdomains.txt
+
+python subrecon.py -w wordlist.txt -t domain.com -oSIP subdomains_ips.txt
+```
+
